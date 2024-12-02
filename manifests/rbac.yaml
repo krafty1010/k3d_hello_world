@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: corprime-sa
+  namespace: corprime
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: corprime-role
+  namespace: corprime
+rules:
+- apiGroups: [""]  # Core API group
+  resources:
+  - pods          
+  - services      
+  verbs:
+  - get          
+  - list         
+  - watch
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: limited-pod-service-binding
+  namespace: corprime
+subjects:
+- kind: ServiceAccount
+  name: corprime-sa
+  namespace: corprime
+roleRef:
+  kind: Role
+  name: corprime-role
+  apiGroup: rbac.authorization.k8s.io

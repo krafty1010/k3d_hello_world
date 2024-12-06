@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: corprime-sa
-  namespace: corprime
+  name: myapp-sa
+  namespace: myapp
 
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: corprime-role
-  namespace: corprime
+  name: myapp-role
+  namespace: myapp
 rules:
 - apiGroups: [""]  # Core API group
   resources:
@@ -26,12 +26,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: limited-pod-service-binding
-  namespace: corprime
+  namespace: myapp
 subjects:
 - kind: ServiceAccount
-  name: corprime-sa
-  namespace: corprime
+  name: myapp-sa
+  namespace: myapp
 roleRef:
   kind: Role
-  name: corprime-role
+  name: myapp-role
   apiGroup: rbac.authorization.k8s.io

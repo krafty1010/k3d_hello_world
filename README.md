@@ -1,21 +1,16 @@
 # Deploy a simple app to K3d
 
-
+Setup a a k3d cluster and deploy an app with ingress enabled. Network policy restricts traffic to required ports only.
 
 ## Ref
 
-install K3d with traefik (default) load balancer enabled. In example, 8080 (external) is mapped to cluster ingress port (80)
-
+k3d stack port mappings
 8080 (host port) ---> 80 (loadbalancer ingress) ---> 80 (service) ---> 8080 (containers)
-
-
-update /etc/hosts
 
 ## Steps
 
 ```
-k3d cluster create mycluster --api-port 6550 -p "8080:80@loadbalancer" --agents 2
-k3d image import myapp:local --cluster mycluster
+make deploy-local-stack:
 
 ```
 

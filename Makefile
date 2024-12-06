@@ -1,5 +1,5 @@
 SHELL := /bin/bash -o pipefail
-KUBECTL := kubectl --context k3d-cluster
+KUBECTL := kubectl --context k3d-mycluyster
 
 .PHONY: create-k3d-cluster
 .PHONY: delete-local-kube-cluster
@@ -17,4 +17,4 @@ build-myapp:
 deploy-local-stack: build-myapp create-k3d-cluster
 	k3d image import myapp:local --cluster mycluster \
 	&& ${KUBECTL} apply -f ./manifests \
-	&& echo "Kubernetes cluster available on Kubernetes context k3d-cluster"
+	&& echo "Kubernetes cluster available on Kubernetes context k3d-mycluster"

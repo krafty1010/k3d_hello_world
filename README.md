@@ -5,7 +5,7 @@ Setup a a k3d cluster and deploy an app with ingress enabled. Network policy res
 ## Ref
 
 k3d stack port mappings
-8080 (host port) ---> 80 (loadbalancer ingress) ---> 80 (service) ---> 8080 (containers)
+8080 (localhost port) ---> 80 (loadbalancer ingress) ---> 80 (service) ---> 8081 (containers)
 
 ## Steps
 

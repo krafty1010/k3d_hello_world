@@ -41,7 +41,7 @@ spec:
     - Egress
   podSelector:
     matchLabels:
-      app: myapp-app
+      app: myapp
   ingress:
     - from:
         - podSelector: {} # Allows traffic from any pod in the namespace

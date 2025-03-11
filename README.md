@@ -9,17 +9,15 @@ k3d stack port mappings
 
 ## Steps
 
-```
-make deploy-local-stack:
+run ```make``` to deploy entire stack
+
+## Troubleshooting
+
+test service 
 
 ```
-
-Add ingress host to lcoal host file e.g.
-127.0.0.1       hello.localhost
-
-## Testing
+kubectl exec -it -n myapp myapp-app-67cb9496fb-2khvd -- curl http://localhost:8081
+kubectl exec -it -n myapp myapp-app-67cb9496fb-2khvd -- curl http://myapp-service:80
 
 ```
-kubectl exec -it -n myapp myapp-app-67cb9496fb-2khvd -- curl http://myapp-service:8080
-curl http://hello.localhost:8080
-```
+test external ```curl http://localhost:8080```

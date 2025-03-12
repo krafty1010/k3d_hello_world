@@ -2,18 +2,18 @@
 
 Setup a a k3d cluster and deploy an app with ingress enabled. Network policy restricts traffic to required ports only.
 
-## Ref
+### Port mappings
 
 k3d stack port mappings
 8888 (localhost port) ---> 80 (loadbalancer ingress) ---> 8080 (service) ---> 8081 (containers)
 
-## Steps
+## Deployment
 
-run ```make``` to deploy entire stack
+run ```make``` to deploy entire stack. Ref MakeFile for other options.
 
 ## Troubleshooting
 
-test service 
+### test service and pods 
 
 ```
 kubectl exec -it -n myapp myapp-app-67cb9496fb-2khvd -- curl http://localhost:8081

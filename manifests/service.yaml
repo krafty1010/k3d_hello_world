@@ -1,0 +1,14 @@
+# This is the service manifest file
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+  namespace: myapp
+spec:
+  selector:
+    app: myapp
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8081 # This is the port of the container
+  type: LoadBalancer # rmdefault is ClusterIP

@@ -1,3 +1,4 @@
+# This file is a Horizontal Pod Autoscaler (HPA) manifest file.
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:

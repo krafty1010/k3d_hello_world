@@ -1,3 +1,4 @@
+# This manifest file contains the network policies for the myapp namespace
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -47,7 +48,7 @@ spec:
         - podSelector: {} # Allows traffic from any pod in the namespace
         - namespaceSelector: {} # Allows traffic from any namespace
       ports:
-        - port: 80
+        - port: 8080
           protocol: TCP
         - port: 8081
           protocol: TCP
@@ -56,7 +57,7 @@ spec:
         - podSelector: {} # Allows traffic from any pod in the namespace
         - namespaceSelector: {} # Allows traffic from any namespace
       ports:
-        - port: 80
+        - port: 8080
           protocol: TCP
         - port: 8081
           protocol: TCP          

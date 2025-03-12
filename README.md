@@ -5,7 +5,7 @@ Setup a a k3d cluster and deploy an app with ingress enabled. Network policy res
 ## Ref
 
 k3d stack port mappings
-8080 (localhost port) ---> 80 (loadbalancer ingress) ---> 80 (service) ---> 8081 (containers)
+8888 (localhost port) ---> 80 (loadbalancer ingress) ---> 8080 (service) ---> 8081 (containers)
 
 ## Steps
 
@@ -17,7 +17,7 @@ test service
 
 ```
 kubectl exec -it -n myapp myapp-app-67cb9496fb-2khvd -- curl http://localhost:8081
-kubectl exec -it -n myapp myapp-app-67cb9496fb-2khvd -- curl http://myapp-service:80
+kubectl exec -it -n myapp myapp-app-67cb9496fb-2khvd -- curl http://myapp-service:8080
 
 ```
-test external ```curl http://localhost:8080```
+test external ```curl http://localhost:8888```

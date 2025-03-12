@@ -5,10 +5,11 @@ metadata:
   labels:
     name: myapp
 ---
+#Deployment manifest for myapp
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: myapp-deployment
   namespace: myapp
 spec:
   replicas: 3
@@ -45,16 +46,3 @@ spec:
             limits:
               memory: "64Mi"
               cpu: "40m"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: myapp-service
-  namespace: myapp
-spec:
-  selector:
-    app: myapp
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8081 # This is the port of the container

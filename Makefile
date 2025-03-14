@@ -19,5 +19,5 @@ import:
 	@echo "importing docker image..." && k3d image import myapp:1.1 --cluster cluster
 
 deploy: build create-k3d-cluster import
-	${KUBECTL} apply -f ./manifests \
-	&& echo "Kubernetes cluster available on Kubernetes context k3d-cluster"
+	@echo "applying manifests..." && ${KUBECTL} apply -f ./manifests \
+	&& echo "kubernetes cluster available using k3d-cluster context" \

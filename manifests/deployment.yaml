@@ -5,7 +5,7 @@ metadata:
   labels:
     name: myapp
 ---
-#Deployment manifest for myapp
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
